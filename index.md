@@ -13,6 +13,8 @@ This blog is an overview of my work done for my C++ project.
 
 ## First Steps
 The first thing I worked on was created the constructors for my project. I wanted the constructors to be relevant to the project so i added in height, width and charset which would focus on the charcacters chosen for the digital rain. 
+
+
 ' class DigitalRain {
   public:
 	  DigitalRain();
