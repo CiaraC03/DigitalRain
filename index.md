@@ -7,9 +7,9 @@ categories: demo
 
 This is my first paragraph...
 
-## This is a Heading
+## Digital Rain in C++
 
-This is a paragraph. Add an empty line to start a new paragraph.
+This blog is an overview of my work done for my C++ project.
 
 Font can be *Italic* or **Bold**.
 
@@ -25,4 +25,4 @@ A bullet list:
 
 You can add an impage that has been uploaded to the repository in a /docs/assets/images folder.
 
-<img src="https://raw.githubusercontent.com/melgineer/digital-rain-test-cpp/main/docs/assets/images/DigitalRainDev1.png" width="400" height="300">
+<img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image.png" width="400" height="300">
