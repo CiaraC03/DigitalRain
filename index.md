@@ -35,10 +35,12 @@ They could choose between ascii numbers, uppercase letters, numbers or a combina
 
 
 I needed to find a way to generate random letters, so I did a bit of research to see what the best way to do this. What I found:
+
+
 **'std::rand() -> Old c ++ way of programming
 std::random_device -> This is used mainly for hardware, but can be slow
 std::mt19937 -> This produces fast and high quality random numbers
-**'
+'**
 
 I decided to generate a different range of numbers I was gonna use the 'std::mt19937' library as this was more releavmt to what i was doing and seemed to be more advanced than the old c++ library 'rand()'. To add this to my project i just needed to add the header file '#include <random>'. 
 
