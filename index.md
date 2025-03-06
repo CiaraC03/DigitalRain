@@ -1,18 +1,14 @@
 ---
 layout: post
-title: A Project in Modern C++
+title: A Project in Modern C++, Digital Rain
 tags: cpp coding project
 categories: demo
 ---
 
-This is my first paragraph...
-
-# Digital Rain in C++
-
-This blog is an overview of my work done for my C++ project.
+By Ciara Crowe
 
 ## First Steps
-The first thing I worked on was created the constructors for my project. I wanted the constructors to be relevant to the project so i added in height, width and charset which would focus on the charcacters chosen for the digital rain. 
+The first thing I worked on was creating the constructors for my project. The main variables I wanted to focus on for the raain was the width of the screen and the height. I decided to use charset, a vector of strings so the charcters could be defined in the project. This is the first constructor I made for my project:
 
 
 **' class DigitalRain
@@ -42,7 +38,7 @@ std::random_device -> This is used mainly for hardware, but can be slow
 std::mt19937 -> This produces fast and high quality random numbers
 '**
 
-I decided to generate a different range of numbers I was gonna use the 'std::mt19937' library as this was more releavmt to what i was doing and seemed to be more advanced than the old c++ library 'rand()'. To add this to my project i just needed to add the header file '#include <random>'. 
+I decided to generate a different range of numbers I was gonna use the **'std::mt19937'** library as this was more releavmt to what i was doing and seemed to be more advanced than the old c++ library **'rand()'**. To add this to my project i just needed to add the header file **'#include <random>'**. 
 
 
 
