@@ -1,8 +1,5 @@
 ---
-layout: post
 title: A Project in Modern C++, Digital Rain
-tags: cpp coding project
-categories: demo
 ---
 
 By Ciara Crowe
@@ -20,13 +17,14 @@ The first thing I worked on was creating the constructors for my project. The ma
 	  DigitalRain(int width, int height, const std::vector<std::string>& charset);
    '**
 
+I decided I wanted my project to be user oriented so that when I started my project the user could choose different options on how the rain looked. The user could choose what type of characters to be displayed were, what colour the rain would be etc..
 
-The next step for me was working with the characters itself and choosing what i could do. I did a little research to decided what would be the best library to use to choose my rain. 
+So I did a little research to see what would be the best library to use to display my rain. 
 After a bit of research I saw that the main library in choosing what chacrters i wanted to set my rain to was, 
-**'std::uniform_int_distribution <int> u(33, 254);'**
-This generates random datasets from an ascii range. This meant i could display my rain with any symbol. 
-I did a little more research to see if there was anything else out there I could use as I had an idea where instead of having rain where the output is just an ascii range, maybe I could prompt the user to see what they wanted. 
-They could choose between ascii numbers, uppercase letters, numbers or a combination of all. 
+**'std::uniform_int_distribution <int> u(x, y);'**
+
+X and Y were dependent on what type of charcter I wanted to display whether it be ascii, numbers or uppercase characters. This meant i could display my rain with any symbol which was more preferable over a specific symbol. 
+I wanted to create a specific function which would generate the random symbols. First I craeted an enum which held the different character types 
 
 
 
@@ -43,7 +41,10 @@ I decided to generate a different range of numbers I was gonna use the **'std::m
 
 
 
-
+<div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
+    <p>Your content goes here. You can add Markdown elements like <strong>bold</strong> text or <em>italic</em> text, 
+    lists, and even code blocks.</p>
+</div>
 
 
 
