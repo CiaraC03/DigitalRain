@@ -26,6 +26,7 @@ I decided I wanted my project to be user oriented so that when I started my proj
 
 So I did a little research to see what would be the best library to use to display my rain. 
 After a bit of research I saw that the main library in choosing what chacrters i wanted to set my rain to was, 
+
 <div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
     <p>
 std::uniform_int_distribution <int> u(x, y);
@@ -33,8 +34,16 @@ std::uniform_int_distribution <int> u(x, y);
 </div>
 
 
+
+
+
+
 X and Y were dependent on what type of charcter I wanted to display whether it be ascii, numbers or uppercase characters. This meant i could display my rain with any symbol which was more preferable over a specific symbol. 
 I wanted to create a specific function which would generate the random symbols. I created a small function which would return a random set of ascii numbers. 
+
+
+
+
 <div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
     <p>
 char DigitalRain::GetRandomCharacter()
@@ -43,6 +52,8 @@ char DigitalRain::GetRandomCharacter()
 }
     </p>
 </div>
+
+
 
 I chose to return a random numbers from 33 to 126 meaning that any ascii character from 33 which is the '!' chacrter to 126, '~' would be printed. The static_cast converts the number generated into ascii code, casting a char. 
 
@@ -88,18 +99,6 @@ For my first attempt I wanted to create a basic rain display, using the height, 
 
 
 
-Font can be *Italic* or **Bold**.
 
-Code can be highlighted with 'backticks'.
-
-Hyperlinks look like this: [GitHub Help](https://help.github.com/).
-
-A bullet list:
-
-- vectors
-- algorithms
-- iterators
-
-You can add an impage that has been uploaded to the repository in a /docs/assets/images folder.
 
 <img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image.png" width="400" height="300">
