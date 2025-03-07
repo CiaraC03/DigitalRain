@@ -57,16 +57,7 @@ char DigitalRain::GetRandomCharacter()
 
 I chose to return a random numbers from 33 to 126 meaning that any ascii character from 33 which is the '!' chacrter to 126, '~' would be printed. The static_cast converts the number generated into ascii code, casting a char. 
 
-I needed to find a way to generate random letters, so I did a bit of research to see what the best way to do this. What I found:
 
-
-<div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
-    <p>
-std::rand() -> Old c ++ way of programming
-std::random_device -> This is used mainly for hardware, but can be slow
-std::mt19937 -> This produces fast and high quality random numbers
-    </p>
-</div>
 
 
 I decided to generate a different range of numbers I was gonna use the **'std::mt19937'** library as this was more releavmt to what i was doing and seemed to be more advanced than the old c++ library **'rand()'**. To add this to my project i just needed to add the header file **'#include <random>'**. 
@@ -75,6 +66,30 @@ I decided to generate a different range of numbers I was gonna use the **'std::m
 ## First Attempt at DigitalRain
 
 For my first attempt I wanted to create a basic rain display, using the height, width and speed variables I already created. First I created a function to display my rain. 
+
+My fist plan was to find out how to update the sequence of numbers every time my rain ran. This is the resaerch I came back with:
+
+<div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
+    <pre>
+std::rand() -> Old c ++ way of programming
+std::random_device -> This is used mainly for hardware, but can be slow
+std::mt19937 -> This produces fast and high quality random numbers
+    </pre>
+</div>
+
+
+I decided to generate a different range of numbers I was gonna use the **'std::mt19937'** library as this was more releavmt to what i was doing and seemed to be more advanced than the old c++ library **'rand()'**. To add this to my project i just needed to add the header file **'#include <random>'**. To proevent the same sequence of numbers produced with a fixed seed, I decided to use the **#include <chrono>** library to add a fixed time seed. This meant that I could have different varied sequence every time I ran my rain. 
+
+<div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
+    <pre>
+engine_(std::chrono::system_clock::now().time_since_epoch().count())
+    </pre>
+</div>
+
+Now that I had decided on my numbers, I focused on the function to create the rain. I started by creating a vector with the width variable i had created. This would represent the way the rain ran vertically. I decided to create two for loops. The first for loop was repsonsible for making sure that the screen was cleared so that new characters could be added I needed to make sure that each show had a falling charcter and decided to 
+
+
+
 
 
 
