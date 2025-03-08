@@ -28,9 +28,9 @@ So I did a little research to see what would be the best library to use to displ
 After a bit of research I saw that the main library in choosing what chacrters i wanted to set my rain to was, 
 
 <div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
-    <p>
+    
 std::uniform_int_distribution <int> u(x, y);
-    </p>
+    
 </div>
 
 
@@ -45,12 +45,12 @@ I wanted to create a specific function which would generate the random symbols. 
 
 
 <div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
-    <p>
+    
 char DigitalRain::GetRandomCharacter()
 {
     return static_cast<char>(std::uniform_int_distribution<int>(33, 126)(engine_));
 }
-    </p>
+    
 </div>
 
 
@@ -70,21 +70,21 @@ For my first attempt I wanted to create a basic rain display, using the height, 
 My fist plan was to find out how to update the sequence of numbers every time my rain ran. This is the resaerch I came back with:
 
 <div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
-    <pre>
+    
 std::rand() -> Old c ++ way of programming
 std::random_device -> This is used mainly for hardware, but can be slow
 std::mt19937 -> This produces fast and high quality random numbers
-    </pre>
+    
 </div>
 
 
 I decided to generate a different range of numbers I was gonna use the **'std::mt19937'** library as this was more releavmt to what i was doing and seemed to be more advanced than the old c++ library **'rand()'**. To add this to my project i just needed to add the header file **'#include <random>'**. To proevent the same sequence of numbers produced with a fixed seed, I decided to use the **#include <chrono>** library to add a fixed time seed. This meant that I could have different varied sequence every time I ran my rain. 
 
 <div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
-    <pre>
+    
 engine_(std::chrono::system_clock::now().time_since_epoch().count())
     </pre>
-</div>
+
 
 Now that I had decided on my numbers, I focused on the function to create the rain. I started by creating a vector with the width variable i had created. This would represent the way the rain ran vertically. I decided to create two for loops. The first for loop was repsonsible for making sure that the screen was cleared so that new characters could be added I needed to make sure that each show had a falling charcter and decided to 
 
