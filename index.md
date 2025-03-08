@@ -86,34 +86,9 @@ engine_(std::chrono::system_clock::now().time_since_epoch().count())
     </pre>
 
 
-Now that I had decided on my numbers, I focused on the function to create the rain. I started by creating a vector with the width variable i had created. This would represent the way the rain ran vertically. I decided to create two for loops. The first for loop was repsonsible for making sure that the screen was cleared so that new characters could be added I needed to make sure that each show had a falling charcter and decided to 
+Now that I had decided on my numbers, I focused on the function to create the rain. I started by creating a vector with the width variable. This would represent the way the rain ran vertically. I decided to create two for loops. The first for loop was repsonsible for making sure that the screen was cleared so that new characters could be added. I also wanted to add in a check to see if a specific column was showing a character at a row. This was the result for my first rain,
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image.png" width="400" height="300">
+<img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image6.png" width="400" height="300">
