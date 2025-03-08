@@ -92,3 +92,9 @@ Now that I had decided on my numbers, I focused on the function to create the ra
 
 
 <img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image6.png" width="400" height="300">
+
+
+
+
+## Updating the DigitalRain
+From the above example it is clear that the rain is very basic and there is a lot more i can add to make it look better and to clean up my code. The first thing i want to change is the number of charcters falling in the vector. 
