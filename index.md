@@ -28,9 +28,9 @@ So I did a little research to see what would be the best library to use to displ
 After a bit of research I saw that the main library in choosing what chacrters i wanted to set my rain to was: 
 
 <div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
-    
-std::uniform_int_distribution <int> u(x, y);
-    
+    <p>
+        std::uniform_int_distribution <int> u(x, y);
+    </p>
 </div>
 
 
@@ -52,6 +52,7 @@ char DigitalRain::GetRandomCharacter()
 }
     
 </div>
+
 
 
 
