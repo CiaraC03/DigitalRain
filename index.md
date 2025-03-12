@@ -27,10 +27,8 @@ I decided I wanted my project to be user oriented so that when I started my proj
 So I did a little research to see what would be the best library to use to display my rain. 
 After a bit of research I saw that the main library in choosing what chacrters i wanted to set my rain to was: 
 
-<div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
-    <p>
-        std::uniform_int_distribution <int> u(x, y);
-    </p>
+<div class="code-box">
+    std::uniform_int_distribution &lt;int&gt; u(x, y);
 </div>
 
 
