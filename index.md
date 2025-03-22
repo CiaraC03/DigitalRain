@@ -7,15 +7,18 @@ By Ciara Crowe
 The first thing I worked on was creating the constructors for my project. The main variables I wanted to focus on for the raain was the width of the screen and the height. This is the first constructor I made for my project:
 
 <div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
-    <p>
- class DigitalRain
-{
-  public:
-	  DigitalRain();
-	  DigitalRain(int width, int height);
-   	  DigitalRain(const DigitalRain&);
-	  ~DigitalRain();
-    </p>
+
+	class DigitalRain {
+      public:
+	DigitalRain();
+	DigitalRain(int width, int height);
+	DigitalRain(const DigitalRain&);
+	~DigitalRain();
+
+	void StartRain(); //this just prints amessage
+	void ShowRain(); //this will  be the function to dispay the rain?
+	char GetRandomCharacter();
+
 </div>
 
 
