@@ -1,11 +1,10 @@
 ---
-title: A Project in Modern C++, Digital Rain
 ---
 
 By Ciara Crowe
 
 ## First Steps
-The first thing I worked on was creating the constructors for my project. The main variables I wanted to focus on for the raain was the width of the screen and the height. I decided to use charset, a vector of strings so the charcters could be defined in the project. This is the first constructor I made for my project:
+The first thing I worked on was creating the constructors for my project. The main variables I wanted to focus on for the raain was the width of the screen and the height. This is the first constructor I made for my project:
 
 <div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
     <p>
@@ -14,18 +13,16 @@ The first thing I worked on was creating the constructors for my project. The ma
   public:
 	  DigitalRain();
 	  DigitalRain(int width, int height);
-	  DigitalRain(const std::vector<std::string>& charset);
-	  DigitalRain(int width, int height, const std::vector<std::string>& charset);
+   	  DigitalRain(const DigitalRain&);
+	  ~DigitalRain();
     </p>
 </div>
 
 
 ## Characters
 
-I decided I wanted my project to be user oriented so that when I started my project the user could choose different options on how the rain looked. The user could choose what word to be displayed, what colour the rain would be etc..
-
-So I did a little research to see what would be the best library to use to display my rain. 
-After a bit of research I saw that the main library in choosing what chacrters i wanted to set my rain to was: 
+The next step for me was choosing what charcters I wanted to be displayed for my rain. I could have a very specific database with specific numbers and letters or i could choose a wide range of them. For me I decided to use a bunch of different charcters to dispaly my rain to make it more like the matricx rain display.
+After a bit of research I saw that the main library in choosing what characters I wanted to set my rain to was: 
 
 <div class="code-box">
     std::uniform_int_distribution &lt;int&gt; u(x, y);
@@ -46,7 +43,8 @@ I wanted to create a specific function which would generate the random symbols. 
     
 char DigitalRain::GetRandomCharacter()
 {
-    return static_cast<char>(std::uniform_int_distribution<int>(33, 126)(engine_));
+	std::uniform_int_distribution<int> dist(33, 126);
+        return static_cast<char>(dist(engine_));
 }
     
 </div>
@@ -58,13 +56,9 @@ I chose to return a random numbers from 33 to 126 meaning that any ascii charact
 
 
 
-
-I decided to generate a different range of numbers I was gonna use the **'std::mt19937'** library as this was more releavmt to what i was doing and seemed to be more advanced than the old c++ library **'rand()'**. To add this to my project i just needed to add the header file **'#include <random>'**. 
-
-
 ## First Attempt at DigitalRain
 
-For my first attempt I wanted to create a basic rain display, using the height, width and speed variables I already created. First I created a function to display my rain. 
+For my first attempt I wanted to create a basic rain display, using the height and width variables I already created. First I created a function to display my rain. 
 
 My fist plan was to find out how to update the sequence of numbers every time my rain ran. This is the resaerch I came back with:
 
@@ -77,15 +71,32 @@ std::mt19937 -> This produces fast and high quality random numbers
 </div>
 
 
-I decided to generate a different range of numbers I was gonna use the **'std::mt19937'** library as this was more releavmt to what i was doing and seemed to be more advanced than the old c++ library **'rand()'**. To add this to my project i just needed to add the header file **'#include <random>'**. To proevent the same sequence of numbers produced with a fixed seed, I decided to use the **#include <chrono>** library to add a fixed time seed. This meant that I could have different varied sequence every time I ran my rain: 
+I decided to generate a different range of numbers I was gonna use the **'std::mt19937'** library as this was more relevent to what I was doing and seemed to be more advanced than the old c++ library **'rand()'**. To add this to my project i just needed to add the header file **'#include <random>'**. 
+
+
+
+Now that I had decided on my numbers, I focused on the function to create the rain. I created a scructure called Raindrop which would display the charcter, speed, x postion and the y position. Using the distribtion generator I created the column distance, to decide on the distance for the columns, chance, which decided on what chance the rain was going to fall, and charset, to pick random charcters: 
 
 <div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
     
-engine_(std::chrono::system_clock::now().time_since_epoch().count())
-    </pre>
+	std::uniform_int_distribution<int> column_dist;
+	std::uniform_int_distribution<int> chance_;
+	std::uniform_int_distribution<int> charset_;
+	std::vector<std::string> screen_;
+
+	struct Raindrop {
+		int x_pos;
+		int y_pos;
+		char character;
+		int speed;
+	};
+	std::vector<Raindrop> raindrops;
+    
+</div>
+
+I used for loops to update and display the rain drops, whilst the charcter moved vertically down the screen. 
 
 
-Now that I had decided on my numbers, I focused on the function to create the rain. I started by creating a vector with the width variable. This would represent the way the rain ran vertically. I decided to create two for loops. The first for loop was repsonsible for making sure that the screen was cleared so that new characters could be added. I also wanted to add in a check to see if a specific column was showing a character at a row. This was the result for my first rain,
 
 
 
