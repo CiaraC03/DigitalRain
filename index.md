@@ -44,11 +44,11 @@ I wanted to create a specific function which would generate the random symbols. 
 
 <div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
     
-char DigitalRain::GetRandomCharacter()
-{
+     char DigitalRain::GetRandomCharacter()
+      {
 	std::uniform_int_distribution<int> dist(33, 126);
         return static_cast<char>(dist(engine_));
-}
+     }
     
 </div>
 
@@ -81,21 +81,23 @@ I decided to generate a different range of numbers I was gonna use the **'std::m
 Now that I had decided on my numbers, I focused on the function to create the rain. I created a scructure called Raindrop which would display the charcter, speed, x postion and the y position. Using the distribtion generator I created the column distance, to decide on the distance for the columns, chance, which decided on what chance the rain was going to fall, and charset, to pick random charcters: 
 
 <div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
-    
+    <pre>
+        
 	std::uniform_int_distribution<int> column_dist;
-	std::uniform_int_distribution<int> chance_;
-	std::uniform_int_distribution<int> charset_;
-	std::vector<std::string> screen_;
+        std::uniform_int_distribution<int> chance_;
+        std::uniform_int_distribution<int> charset_;
+        std::vector<std::string> screen_;
 
-	struct Raindrop {
-		int x_pos;
-		int y_pos;
-		char character;
-		int speed;
-	};
-	std::vector<Raindrop> raindrops;
-    
+        struct Raindrop {
+            int x_pos;
+            int y_pos;
+            char character;
+            int speed;
+        };
+        std::vector<Raindrop> raindrops;
+    </pre>
 </div>
+
 
 I used for loops to update and display the rain drops, whilst the charcter moved vertically down the screen. 
 
