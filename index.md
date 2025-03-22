@@ -99,7 +99,7 @@ Now that I had decided on my numbers, I focused on the function to create the ra
 </div>
 
 
-I used for loops to update and display the rain drops, whilst the charcter moved vertically down the screen. 
+
 
 
 
@@ -107,6 +107,8 @@ I used for loops to update and display the rain drops, whilst the charcter moved
 
 
 <img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image6.png" width="400" height="300">
+
+I used for loops to update and display the rain drops, whilst the charcter moved vertically down the screen. 
 
 
 
