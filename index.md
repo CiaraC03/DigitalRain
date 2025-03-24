@@ -108,4 +108,4 @@ I used for loops to update and display the rain drops, whilst the charcter moved
 From the above example it is clear that the rain is very basic and there is a lot more i can add to make it look better and to clean up my code. The first thing I want to change is the colour of the charcters falling. I decided it would be a cool idea if the colour could change everytime the rain is updated. In order to add colour into my rain I decided to use the **#include <windows.h>**. I decided to us the distribution object again to generate random colours, **std::uniform_int_distribution<int> choose_colour;**. I used the following function, 
 ** HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);**. This function is used to control the handle of the consoles output. By getting the handle I can set the handle to the colour I need. I created a getter and a setter for my random colours to do this. This is the outcome, 
 
-<img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image6.png" width="400" height="300">
+<img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image2.png" width="400" height="300">
