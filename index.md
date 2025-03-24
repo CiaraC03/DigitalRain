@@ -27,9 +27,9 @@ The first thing I worked on was creating the constructors for my project. The ma
 The next step for me was choosing what charcters I wanted to be displayed for my rain. I could have a very specific database with specific numbers and letters or i could choose a wide range of them. For me I decided to use a bunch of different charcters to dispaly my rain to make it more like the matricx rain display.
 After a bit of research I saw that the main library in choosing what characters I wanted to set my rain to was: 
 
-<div class="code-box">
-    std::uniform_int_distribution &lt;int&gt; u(x, y);
-</div>
+
+**std::uniform_int_distribution &lt;int&gt; u(x, y);**
+
 
 
 
@@ -40,17 +40,8 @@ X and Y were dependent on what type of charcter I wanted to display whether it b
 I wanted to create a specific function which would generate the random symbols. I created a small function which would return a random set of ascii numbers: 
 
 
+**char DigitalRain::GetRandomCharacter()**
 
-
-<div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
-    
-     char DigitalRain::GetRandomCharacter()
-      {
-	std::uniform_int_distribution<int> dist(33, 126);
-        return static_cast<char>(dist(engine_));
-     }
-    
-</div>
 
 
 
