@@ -78,7 +78,7 @@ I decided to generate a different range of numbers I was gonna use the **'std::m
 
 
 
-Now that I had decided on my numbers, I focused on the function to create the rain. I created a scructure called Raindrop which would display the charcter, speed, x postion and the y position. Using the distribtion generator I created the column distance, to decide on the distance for the columns, chance, which decided on what chance the rain was going to fall, and charset, to pick random charcters: 
+Now that I had decided on my numbers, I focused on the function to create the rain. I created a scructure called Raindrop which would display the charcter, speed, x postion and the y position. Using the distribtion generator I created the column distance, to decide on the distance for the columns, chance, which decided on what chance the rain was going to fall, and charset, to pick random charcters. In my constrcutor I have set the chance to be chance_(0, 10), meaning that an int is produced between 0 and 10. Chance is set to 3 when creating a new drop so that the probablility of producing a new rain drop is about 3/11, just under 30%: 
 
 <div style="border: 2px solid #3498db; padding: 10px; border-radius: 5px; background-color: #f0f8ff; margin: 20px 0;">
     <pre>
@@ -114,4 +114,4 @@ I used for loops to update and display the rain drops, whilst the charcter moved
 
 
 ## Updating the DigitalRain
-From the above example it is clear that the rain is very basic and there is a lot more i can add to make it look better and to clean up my code. The first thing i want to change is the number of charcters falling in the vector. 
+From the above example it is clear that the rain is very basic and there is a lot more i can add to make it look better and to clean up my code. The first thing I want to change is the colour of the charcters falling. I decided it would be a cool idea if the colour could change everytime the rain is updated.  
