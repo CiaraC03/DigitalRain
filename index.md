@@ -97,12 +97,13 @@ I used for loops to update and display the rain drops, whilst the charcater move
 It is clear that the rain is very basic and there is a lot more I can add to make it look better and to clean up my code. The first thing I want to change is the colour of the charcters falling. I decided it would be a cool idea if the colour could change everytime the rain is updated. In order to add colour into my rain I decided to use the **#include <windows.h>**. I referenced this page, https://www.geeksforgeeks.org/how-to-change-console-color-in-cpp/. I decided to use the distribution object again to generate random colours like how I generated my characters, **std::uniform_int_distribution<int> choose_colour;**. I used the following function, 
 **HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);**. This function is used to control the handle of the consoles output. By getting the handle I can set the handle to the colour I need. I created a getter and a setter for my random colours to do this. This is the outcome, 
 
-<img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image2.png" width="400" height="300">
+<img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/code_recording5.gif" width="400" height="300">
 
 ## Adding a delay
 When I first rain, it was extremely fast even with changing the speed of the raindrops. 
 
 <img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image2.png" width="400" height="300">
+
 After research, I decided I needed a delay for the overall frame of the display, https://blog.bearcats.nl/accurate-sleep-function/. I added in, 
 
      std::this_thread::sleep_for(std::chrono::milliseconds(speed_));
