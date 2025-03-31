@@ -68,7 +68,7 @@ I decided to generate a different range of numbers I was gonna use the **std::mt
 Now that I had decided on my numbers, I focused on the function to create the rain. I created a structure called Raindrop which would display the character, speed, x postion and the y position. 
 Using the distribution generator I created the column distance, chance, charset and screen. I set the values for these in my constructors. The column distance focused on what distance the columns would be for the rain. Before adding in chance, my rain drops were ran all over the place. I set my change to be between 0, 10. Upon starting up the rain, the chance was set to 5, so that there was a 50% chance of the rain running. If I increased or decreased this number it would effect how much rain appeared om the screen. 
 Charset was created so that I could my characters, as descirbed above. 
-Finally, screen focused
+Finally, screen focused on clearing the display and making sure the characters were stored properly. Without this, the screen wasn't clearning and the rain looked messy. In my constructures, I set screen to set a 2D grid to place characters, **screen_ = std::vector<std::string>(height, std::string(width, ' '));**. By placing the width and height in the vector, the current state of the screen is saved.
 
 
         
@@ -93,8 +93,17 @@ Finally, screen focused
 
 I used for loops to update and display the rain drops, whilst the charcater moved vertically down the screen. 
 
+## Updating the DigitalRain to handle colour
+It is clear that the rain is very basic and there is a lot more I can add to make it look better and to clean up my code. The first thing I want to change is the colour of the charcters falling. I decided it would be a cool idea if the colour could change everytime the rain is updated. In order to add colour into my rain I decided to use the **#include <windows.h>**. I referenced this page, https://www.geeksforgeeks.org/how-to-change-console-color-in-cpp/. I decided to use the distribution object again to generate random colours like how I generated my characters, **std::uniform_int_distribution<int> choose_colour;**. I used the following function, 
+**HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);**. This function is used to control the handle of the consoles output. By getting the handle I can set the handle to the colour I need. I created a getter and a setter for my random colours to do this. This is the outcome, 
+
+<img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image2.png" width="400" height="300">
+
 ## Adding a delay
-When I first rain, it was extremely fast even with changing the speed of the raindrops. After research, I decided I needed a delay for the overall frame of the display, https://blog.bearcats.nl/accurate-sleep-function/. I added in, 
+When I first rain, it was extremely fast even with changing the speed of the raindrops. 
+
+<img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image2.png" width="400" height="300">
+After research, I decided I needed a delay for the overall frame of the display, https://blog.bearcats.nl/accurate-sleep-function/. I added in, 
 
      std::this_thread::sleep_for(std::chrono::milliseconds(speed_));
 
@@ -103,25 +112,23 @@ I used two libraires, **#include <chrono>** which was responsible for how long I
 At the start of the project I created 2 local variables width and height, but instead I decided that I wanted to create member functions as this would allow the code to be reuable and encapsilating. 
 
 
-## Updating the DigitalRain to handle colour
-It is clear that the rain is very basic and there is a lot more I can add to make it look better and to clean up my code. The first thing I want to change is the colour of the charcters falling. I decided it would be a cool idea if the colour could change everytime the rain is updated. In order to add colour into my rain I decided to use the **#include <windows.h>**. I referenced this page, https://www.geeksforgeeks.org/how-to-change-console-color-in-cpp/. I decided to use the distribution object again to generate random colours like how I generated my characters, **std::uniform_int_distribution<int> choose_colour;**. I used the following function, 
-**HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);**. This function is used to control the handle of the consoles output. By getting the handle I can set the handle to the colour I need. I created a getter and a setter for my random colours to do this. This is the outcome, 
-
-<img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image2.png" width="400" height="300">
 
 
 ## Making a column in my Digital rain
 Currently, my rain displays one character at a time. I wanted to update this code so that three characters would be generated instead of one. To do this, I changed my characters in my raindrop structure from an int to a char of vectors so i could display multiple characters, **std::vector<char> characters;**. Since there was three characters now per raindrop, I introduced a for loop to display them, 
 
-'''
+
 
        for (int i = 0; i < 3; ++i) {
            new_drop.characters.push_back(GetRandomCharacter());
        }
 
 
-'''
 
-I decided to use the **push_back** to my vector to add an element to the end of it, https://www.w3schools.com/cpp/ref_vector_push_back.asp. The next thing I did was displaying my rain vertically after the characters were generated. 
+
+I decided to use the **push_back** to my vector to add an element to the end of it, https://www.w3schools.com/cpp/ref_vector_push_back.asp. The next thing I did was displaying my rain vertically after the characters were generated. This was the result of my 3 character vector, 
+
+<img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image7.png" width="400" height="300">
+
 
 # More characters printed in the screen
