@@ -173,7 +173,7 @@ At the start of the project I created 2 local variables width and height, but in
  This is my final product, 
 
  
-
+<img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/code_recording7.gif" width="400" height="300">
  
 
  
