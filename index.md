@@ -21,7 +21,7 @@ This was my first change to my project, however I changed these variables later 
 
 ## Characters
 
-My next step was to choose the characters that would be displayed as digital rain. I had the option to create a very specific set of characters and letters or I could choose a wide range of them. I decided to use a bunch of different characters to display my rain to mimic the movie 'The Matrix'.
+My next step was to choose the characters that would be displayed as digital rain. I had the option to create a very specific set of characters and letters or I could choose a wide range of them. I decided to use numerous different characters to display my rain to mimic the movie 'The Matrix'.
 In order to produce characters which were flexible, I decided to use the following: 
 
 
@@ -38,7 +38,7 @@ X and Y were dependent on what characters I wanted to display whether it be asci
 	std::mt19937 -> This produces fast and high quality random numbers
 
  
-To generate a different range of numbers I was gonna use the **std::mt19937** library as this was more relevent to what I was doing and seemed to be more advanced than the old C++ library **'rand()'**. To add this to my project i just needed to add the header file **#include random**. 
+To generate a different range of numbers I will use the **std::mt19937** library as this is more relevent to what I am working on and more advanced than the old C++ library **'rand()'**. To add this to my project i just needed to add the header file **#include random**. 
 
 I wanted to create a function which would use the random engine generator in conjuction with my charset. I created a small function which would return a random set of ascii numbers: 
 
@@ -58,7 +58,7 @@ I wanted to create a function which would use the random engine generator in con
 
 
 
-Now that I had my characters, I focused on the function to create the rain. I created a structure called Raindrop which would display the character, speed and x and y positions for the rain. 
+With my characters working, I focused on the function to create the rain. I created a structure called Raindrop which would display the character, speed and x and y positions for the rain. 
 
 Using the distribution generator, I created the column distance, chance, charset and screen. 
 
@@ -68,15 +68,15 @@ Using the distribution generator, I created the column distance, chance, charset
 	std::vector<std::string> screen;
 
 I set the values for these in my constructors. The column distance focused on what distance the columns would be for the rain. Each raindrop would set 
-a new column. It sets a new integer for each raindrop, making sure it stays in the range of width. Like the characters, the engine creates a random int between the numbers so that each raindrop appears in different areas of the screen. 
+a new column. It sets a new integer for each raindrop, making sure it stays in the range of width. Like the characters, the engine creates a random integer between the numbers so that each raindrop appears in different areas of the screen. 
 
 	new_drop.x_pos = column_dist(engine);
 
-Before adding in chance, my rain drops ran all over the place. I needed to add code which would prevent creating raindrops constantly. I set my chance to be between 0, 10. Upon starting up the rain, the chance was set to 5, so that there was a 50% chance of the rain running. If I increased or decreased this number it would effect how much rain appeared on the screen. I decided to leave it at 5. I used AI to help me with this idea. 
+Before adding in **chance**, my rain drops ran all over the place. I needed to add code which would prevent creating raindrops constantly. I set my **chance** to be between 0-10. At first, I set the **chance** to 5, so that there was a 50% chance of the rain running. If I increased or decreased this number it would effect how much rain appeared on the screen. I decided to leave it at 5. I used AI to help me with this idea. 
 
 
-As described above, charset uses the random number engine to genereate a random integer. In my constructors, I chose to return random numbers from 33 to 126 meaning that characters from '!' to '~' would be printed. Here I was able to choose what characters I wanted, https://www.geeksforgeeks.org/ascii-table/ .
-Finally, screen focused on clearing the display and making sure the characters were stored properly. Without this, the screen wasn't clearning and the rain looked messy. In my constructures, I set screen to set a 2D grid to place characters, **screen = std::vector<std::string>(height, std::string(width, ' '));**. By placing the width and height in the vector, the current state of the screen is saved.
+As described above, **charset** uses the random number engine to genereate a random integer. In my constructors, I chose to return random numbers from 33 to 126 meaning that characters from '!' to '~' would be printed. Here I was able to choose what characters I wanted, https://www.geeksforgeeks.org/ascii-table/ .
+Finally, **screen** focused on clearing the display and making sure the characters were stored properly. Without this, the display wasn't clearning and the rain looked messy. In my constructures, I set screen to set a 2D grid to place characters, **screen = std::vector<std::string>(height, std::string(width, ' '));**. By placing the width and height in the vector, the current state of the display is saved.
 
 This is the raindrop structure I created:
 
@@ -111,7 +111,7 @@ These are my constructors:
 I used for loops to update and display the rain drops, whilst the character moved vertically down the screen. 
 
 ## Adding more characters in my Digital Rain
-Currently, my rain displays one character at a time. I wanted to update this code so that three characters would be generated instead of one. To do this, I changed my characters in my raindrop structure from an int to a char of vectors so i could display multiple characters, **std::vector<char> characters;**. Since there was three characters now per raindrop, I introduced a for loop to display them, 
+Currently, my rain displays one character at a time. I wanted to update this code so that three characters would be generated instead of one. To do this, I changed my characters in my raindrop structure from an integer to a char of vectors so i could display multiple characters, **std::vector<char> characters;**. Since there was three characters now per raindrop, I introduced a for loop to display them, 
 
 
 
