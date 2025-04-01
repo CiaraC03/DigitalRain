@@ -21,8 +21,8 @@ This was my first change to my project, however I changed these variables later 
 
 ## Characters
 
-My next step was to choose the characters that would be displayed as digital rain. I had the option to create a very specific set of characters and letters or I could choose a wide range of them. I decided to use a bunch of different charcters to display my rain to mimic the movie 'The Matrix'.
-After a bit of research, in order to produce characters which were flexible, I decided to use the following: 
+My next step was to choose the characters that would be displayed as digital rain. I had the option to create a very specific set of characters and letters or I could choose a wide range of them. I decided to use a bunch of different characters to display my rain to mimic the movie 'The Matrix'.
+In order to produce characters which were flexible, I decided to use the following: 
 
 
 **std::uniform_int_distribution &lt;int&gt; u(x, y);**
