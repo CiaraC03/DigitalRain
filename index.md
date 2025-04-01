@@ -4,7 +4,7 @@
 By Ciara Crowe
 
 ## Setting up my Digital Rain
-The first task I worked on was creating the constructors for my project. In order to produce the rain effect, I needed to have variables which took into consinder the screen's width and height. This is the first constructor I added:
+The first task I worked on was creating the constructors for my project. In order to produce the rain effect, I needed to have variables which took into consider the screen's width and height. This is the first constructor I added:
 
 ```
 
@@ -50,15 +50,15 @@ I wanted to create a function which would use the random engine generator in con
 
 
 
- The static_cast converts the number generated into ascii code, casting a char. 
+ The static_cast converts the number generated into ascii code, casting the char. 
 
 
 
-## First Attempt at DigitalRain Effect
+## First Attempt at Digital Rain
 
 
 
-Now that I had decided on my numbers, I focused on the function to create the rain. I created a structure called Raindrop which would display the character, speed and x and y position for the display. 
+Now that I had my characters, I focused on the function to create the rain. I created a structure called Raindrop which would display the character, speed and x and y positions for the rain. 
 
 Using the distribution generator, I created the column distance, chance, charset and screen. 
 
@@ -67,15 +67,15 @@ Using the distribution generator, I created the column distance, chance, charset
 	std::uniform_int_distribution<int> charset;
 	std::vector<std::string> screen;
 
-I set the values for these in my constructors. The column distance focused on what distance the columns would be for the rain. Each raindrop would be set 
-a new column. It sets a new integer for each raindrop, making sure it stays in the range of width. Like the charcters, the engine creates a ranodm int between the number so that each raindrop appears in different areas of the screen. 
+I set the values for these in my constructors. The column distance focused on what distance the columns would be for the rain. Each raindrop would set 
+a new column. It sets a new integer for each raindrop, making sure it stays in the range of width. Like the characters, the engine creates a random int between the numbers so that each raindrop appears in different areas of the screen. 
 
 	new_drop.x_pos = column_dist(engine);
 
-Before adding in chance, my rain drops were ran all over the place so i needed a check. I set my chance to be between 0, 10. Upon starting up the rain, the chance was set to 5, so that there was a 50% chance of the rain running. If I increased or decreased this number it would effect how much rain appeared on the screen. I decided to leave it at 5. I used AI to help me with this idea. 
+Before adding in chance, my rain drops ran all over the place. I needed to add code which would prevent creating raindrops constantly. I set my chance to be between 0, 10. Upon starting up the rain, the chance was set to 5, so that there was a 50% chance of the rain running. If I increased or decreased this number it would effect how much rain appeared on the screen. I decided to leave it at 5. I used AI to help me with this idea. 
 
 
-As described above, charset is used to charset uses the random number engine to genereate a random integer. In my constructors, I chose to return random numbers from 33 to 126 meaning that characters from '!' to '~' would be printed. Here I was able to choose what characters I wanted, https://www.geeksforgeeks.org/ascii-table/ .
+As described above, charset uses the random number engine to genereate a random integer. In my constructors, I chose to return random numbers from 33 to 126 meaning that characters from '!' to '~' would be printed. Here I was able to choose what characters I wanted, https://www.geeksforgeeks.org/ascii-table/ .
 Finally, screen focused on clearing the display and making sure the characters were stored properly. Without this, the screen wasn't clearning and the rain looked messy. In my constructures, I set screen to set a 2D grid to place characters, **screen = std::vector<std::string>(height, std::string(width, ' '));**. By placing the width and height in the vector, the current state of the screen is saved.
 
 This is the raindrop structure I created:
@@ -110,7 +110,7 @@ These are my constructors:
 
 I used for loops to update and display the rain drops, whilst the character moved vertically down the screen. 
 
-## Adding more characters in my Digital rain
+## Adding more characters in my Digital Rain
 Currently, my rain displays one character at a time. I wanted to update this code so that three characters would be generated instead of one. To do this, I changed my characters in my raindrop structure from an int to a char of vectors so i could display multiple characters, **std::vector<char> characters;**. Since there was three characters now per raindrop, I introduced a for loop to display them, 
 
 
@@ -127,6 +127,16 @@ I decided to use the **push_back** so the implementation could be more dynanmic,
 	for (size_t i = 0; i < drop.characters.size(); ++i) {
     	int pos_y = drop.y_pos - i;
      	}
+
+I used a size_t type as this was recommended when working with my vector. I used the size function to return the number of charcters which was three, https://www.w3schools.com/cpp/ref_string_size.asp#:~:text=Definition%20and%20Usage,()%20-%20they%20behave%20the%20same. I created an int pos_y so that each charcter could be displayed vertically. In this for loop, character stays at the first position which is **y_pos**. Then they are displayed a row below eachother until i = 2. 
+So while **y_pos** focuses on the position of the entire raindrop, **pos_y** focuses on the charcter of each position to create the vertical effect.
+
+
+I was having a few errors where the drops were not appearing as expected. Some characters were not appearing in there vertical line so I added in a condition to make sure that the characters would be displayed at the correct positions. I added a for loop which ensured that the positions were not negative, and that the positions were less than the height, which was 25. Using the 2D screen grid, for the vertical position **pos_y**, and the column position **x_pos**, the characters are placed at different places over the screen, 
+
+	if (pos_y >= 0 && pos_y < height) {
+        screen[pos_y][drop.x_pos] = drop.characters[i];
+	}
 
 This was the result of my 3 character vector, 
 
@@ -145,7 +155,7 @@ After research, I decided I needed a delay for the overall frame of the display,
      std::this_thread::sleep_for(std::chrono::milliseconds(speed_));
 
 
-I used two libraires, **#include chrono** which was responsible for how long I wanted my delay, for my case, milliseconds.  As the **speed** variable is created inside of the  raindrop structure and would focus on the speed of each individual raindrop, I decided to create another variable called **speed_** which would focus on the speed of the rain effect. The second library I used was the **#include thread** which was responsible for the pause on the thread. 
+I used two libraires, **#include chrono** which was responsible for how long I wanted my delay, for my case, milliseconds.  As the **speed** variable is created inside of the raindrop structure and would focus on the speed of each individual raindrop, I decided to create another variable called **speed_** which would focus on the speed of the rain effect. The second library I used was the **#include thread** which was responsible for the pause on the thread. 
 
 
 
@@ -158,6 +168,13 @@ At the start of the project I created 2 local variables width and height, but in
 	int height;
 	int speed_;
 	std::mt19937 engine;
+
+
+ This is my final product, 
+
+ 
+
+ 
 
  
 
