@@ -4,7 +4,7 @@
 By Ciara Crowe
 
 ## Setting up my Digital Rain
-The first task I worked on was creating the constructors for my project. In order to produce the rain effect, I needed to have variables which took into consider the screen's width and height. This is the first constructor I added:
+The first task I worked on was creating the constructors for my project. In order to produce the rain effect, I needed to have variables which took into consideration the screen's width and height. This is the first constructor I added:
 
 ```
 
@@ -106,7 +106,7 @@ These are my constructors:
 
  This is my first attempt at Digital Rain.
 
-<img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image6.png" width="400" height="300">
+<img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image2.png" width="400" height="300">
 
 I used for loops to update and display the rain drops, whilst the character moved vertically down the screen. 
 
