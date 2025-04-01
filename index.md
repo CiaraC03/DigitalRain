@@ -76,7 +76,7 @@ Before adding in **chance**, my rain drops ran all over the place. I needed to a
 
 
 As described above, **charset** uses the random number engine to genereate a random integer. In my constructors, I chose to return random numbers from 33 to 126 meaning that characters from '!' to '~' would be printed. Here I was able to choose what characters I wanted, https://www.geeksforgeeks.org/ascii-table/ .
-Finally, **screen** focused on clearing the display and making sure the characters were stored properly. Without this, the display wasn't clearing and the rain looked messy. In my constructures, I set screen to set a 2D grid to place characters, **screen = std::vector<std::string>(height, std::string(width, ' '));**. By placing the width and height in the vector, the current state of the display is saved.
+Finally, **screen** focused on clearing the data and making sure the characters were stored properly in terms of memory. In my constructures, I set screen to set a 2D grid to place characters, **screen = std::vector<std::string>(height, std::string(width, ' '));**. By placing the width and height in the vector, the current state of the display is saved.
 
 This is the raindrop structure I created:
 
@@ -168,6 +168,10 @@ At the start of the project I created 2 local variables width and height, but in
 	int height;
 	int speed_;
 	std::mt19937 engine;
+
+
+
+To clear my screen physically, I used the **\033** escape character so that my display would be refreshed. I used this as refernce when clearing my screen, https://medium.com/@ryan_forrester_/c-screen-clearing-how-to-guide-cff5bf764ccd#:~:text=%20%60%5C033%60%20is%20the%20escape,and%20works%20on%20most%20platforms.
 
 
  This is my final product, 
