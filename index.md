@@ -155,7 +155,7 @@ After research, I decided I needed a delay for the overall frame of the display,
      std::this_thread::sleep_for(std::chrono::milliseconds(speed_));
 
 
-I used two libraires, **#include chrono** which was responsible for how long I wanted my delay, for my case, milliseconds.  As the **speed** variable is created inside of the raindrop structure and would focus on the speed of each individual raindrop, I decided to create another variable called **speed_** which would focus on the speed of the rain effect. The second library I used was the **#include thread** which was responsible for the pause on the thread. 
+I used two libraires, **#include chrono** which was responsible for how long I wanted my delay, for my case, milliseconds.  As the **speed** variable is created inside of the raindrop structure and would focus on the speed of each individual raindrop, I decided to create another variable called **speed_** which would focus on the overall speed effect. The second library I used was the **#include thread** which was responsible for the pause on the thread. 
 
 
 
