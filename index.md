@@ -106,7 +106,7 @@ These are my constructors:
 
  This is my first attempt at Digital Rain.
 
-<img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image2.png" width="400" height="300">
+<img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image10.png" width="400" height="300">
 
 I used for loops to update and display the rain drops, whilst the character moved vertically down the screen. 
 
