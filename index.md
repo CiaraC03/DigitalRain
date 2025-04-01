@@ -76,7 +76,7 @@ Before adding in **chance**, my rain drops ran all over the place. I needed to a
 
 
 As described above, **charset** uses the random number engine to genereate a random integer. In my constructors, I chose to return random numbers from 33 to 126 meaning that characters from '!' to '~' would be printed. Here I was able to choose what characters I wanted, https://www.geeksforgeeks.org/ascii-table/ .
-Finally, **screen** focused on clearing the display and making sure the characters were stored properly. Without this, the display wasn't clearning and the rain looked messy. In my constructures, I set screen to set a 2D grid to place characters, **screen = std::vector<std::string>(height, std::string(width, ' '));**. By placing the width and height in the vector, the current state of the display is saved.
+Finally, **screen** focused on clearing the display and making sure the characters were stored properly. Without this, the display wasn't clearing and the rain looked messy. In my constructures, I set screen to set a 2D grid to place characters, **screen = std::vector<std::string>(height, std::string(width, ' '));**. By placing the width and height in the vector, the current state of the display is saved.
 
 This is the raindrop structure I created:
 
@@ -128,11 +128,11 @@ I decided to use the **push_back** so the implementation could be more dynanmic,
     	int pos_y = drop.y_pos - i;
      	}
 
-I used a size_t type as this was recommended when working with my vector. I used the size function to return the number of charcters which was three, https://www.w3schools.com/cpp/ref_string_size.asp#:~:text=Definition%20and%20Usage,()%20-%20they%20behave%20the%20same. I created an int pos_y so that each charcter could be displayed vertically. In this for loop, character stays at the first position which is **y_pos**. Then they are displayed a row below eachother until i = 2. 
+I used a size_t type as this was recommended when working with my vector. I used the size function to return the number of charcters which was three, https://www.w3schools.com/cpp/ref_string_size.asp#:~:text=Definition%20and%20Usage,()%20-%20they%20behave%20the%20same. I created an int pos_y so that each charcter could be displayed vertically. In this for loop, the character stays at the first position which is **y_pos**. Then they are displayed a row below eachother until i = 2. 
 So while **y_pos** focuses on the position of the entire raindrop, **pos_y** focuses on the charcter of each position to create the vertical effect.
 
 
-I was having a few errors where the drops were not appearing as expected. Some characters were not appearing in there vertical line so I added in a condition to make sure that the characters would be displayed at the correct positions. I added a for loop which ensured that the positions were not negative, and that the positions were less than the height, which was 25. Using the 2D screen grid, for the vertical position **pos_y**, and the column position **x_pos**, the characters are placed at different places over the screen, 
+I was having a few errors where the drops were not appearing as expected. Some characters were not appearing in there vertical line so I added in a condition to make sure that the characters would be displayed at the correct positions. I added a for loop which ensured that the positions were not negative, and that the positions were less than the height, which was 25. Using the 2D screen grid, for the vertical position **pos_y**, and the column position **x_pos**, the characters are placed at different positions over the screen, 
 
 	if (pos_y >= 0 && pos_y < height) {
         screen[pos_y][drop.x_pos] = drop.characters[i];
@@ -143,7 +143,7 @@ This was the result of my 3 character vector,
 <img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/new_image.png" width="400" height="300">
 
 ## Updating the DigitalRain to handle colour
-It is clear that the rain is very basic and there is a lot more I can add to make it look better and to clean up my code. The first thing I want to change is the colours of the charcters falling. I decided it would be an interesting idea if the colour could change everytime the characters are updated on the screen. In order to add colour into my rain I decided to use the **#include windows.h**. I referenced this page, https://www.geeksforgeeks.org/how-to-change-console-color-in-cpp/. I decided to use the distribution object again to generate random colours like how I generated my characters, **std::uniform_int_distribution<int> choose_colour;**. I used the following function, 
+It is clear that the rain is very basic and there is a lot more I can add to make it look better and to clean up my code. The first thing I want to change is the colours of the charcters falling. I decided it would be an interesting idea if the colour could change everytime the characters are updated on the screen. In order to add colour into my rain I decided to use the **#include windows.h**. I referenced this page, https://www.geeksforgeeks.org/how-to-change-console-color-in-cpp/. I decided to use the distribution object again to generate random colours like how I generated my characters, **std::uniform_int_distribution<int> choose_colour**. I used the following function, 
 **HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);**. This function is used to control the handle of the consoles output. By getting the handle I can set the handle to the colour I need. I created a getter and a setter for my random colours to do this. This is the outcome, 
 
 <img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/code_recording5.gif" width="400" height="300">
