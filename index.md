@@ -140,7 +140,7 @@ I was having a few errors where the drops were not appearing as expected. Some c
 
 This was the result of my 3 character vector, 
 
-<img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/image7.png" width="400" height="300">
+<img src="https://raw.githubusercontent.com/CiaraC03/DigitalRain/main/docs/assets/images/new_image.png" width="400" height="300">
 
 ## Updating the DigitalRain to handle colour
 It is clear that the rain is very basic and there is a lot more I can add to make it look better and to clean up my code. The first thing I want to change is the colours of the charcters falling. I decided it would be an interesting idea if the colour could change everytime the characters are updated on the screen. In order to add colour into my rain I decided to use the **#include windows.h**. I referenced this page, https://www.geeksforgeeks.org/how-to-change-console-color-in-cpp/. I decided to use the distribution object again to generate random colours like how I generated my characters, **std::uniform_int_distribution<int> choose_colour;**. I used the following function, 
