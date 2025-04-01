@@ -29,14 +29,16 @@ After a bit of research, in order to produce characters which were flexible, I d
 
 
 
-I got my research from here, https://medium.com/@ryan_forrester_/c-random-string-generation-practical-guide-e7e789b348d4. X and Y were dependent on what characters I wanted to display whether it be ascii, numbers or uppercase characters. This flexibility allowed me to use a wide array of symbols instead of being limited to a specific one. Using this distribution, I could use a random number generator engine to display the charcters. I used chat gpt to see what was best libraries I could use to update my code. This is the research I came back with:
+I got my research from here, https://medium.com/@ryan_forrester_/c-random-string-generation-practical-guide-e7e789b348d4. 
+
+X and Y were dependent on what characters I wanted to display whether it be ascii, numbers or uppercase characters. Using this distribution, I could use a random number generator engine to display the charcters. I used chat gpt to see what the best libraries were to update my code. This is the research I came back with:
 
 	std::rand() -> Old c ++ way of programming
 	std::random_device -> This is used mainly for hardware, but can be slow
 	std::mt19937 -> This produces fast and high quality random numbers
 
  
-I decided to generate a different range of numbers I was gonna use the **std::mt19937** library as this was more relevent to what I was doing and seemed to be more advanced than the old C++ library **'rand()'**. To add this to my project i just needed to add the header file **#include random**. 
+To generate a different range of numbers I was gonna use the **std::mt19937** library as this was more relevent to what I was doing and seemed to be more advanced than the old C++ library **'rand()'**. To add this to my project i just needed to add the header file **#include random**. 
 
 I wanted to create a function which would use the random engine generator in conjuction with my charset. I created a small function which would return a random set of ascii numbers: 
 
@@ -56,19 +58,28 @@ I wanted to create a function which would use the random engine generator in con
 
 
 
-Now that I had decided on my numbers, I focused on the function to create the rain. I created a structure called Raindrop which would display the character, speed and x postion and y position for the display. 
-Using the distribution generator, I created the column distance, chance, charset and screen. I set the values for these in my constructors. The column distance focused on what distance the columns would be for the rain. Before adding in chance, my rain drops were ran all over the place. I set my chance to be between 0, 10. Upon starting up the rain, the chance was set to 5, so that there was a 50% chance of the rain running. If I increased or decreased this number it would effect how much rain appeared on the screen. I decided to leave it at 5.
+Now that I had decided on my numbers, I focused on the function to create the rain. I created a structure called Raindrop which would display the character, speed and x and y position for the display. 
+
+Using the distribution generator, I created the column distance, chance, charset and screen. 
+
+	std::uniform_int_distribution<int> column_dist;
+	std::uniform_int_distribution<int> chance;
+	std::uniform_int_distribution<int> charset;
+	std::vector<std::string> screen;
+
+I set the values for these in my constructors. The column distance focused on what distance the columns would be for the rain. Each raindrop would be set 
+a new column. It sets a new integer for each raindrop, making sure it stays in the range of width. Like the charcters, the engine creates a ranodm int between the number so that each raindrop appears in different areas of the screen. 
+
+	new_drop.x_pos = column_dist(engine);
+
+Before adding in chance, my rain drops were ran all over the place so i needed a check. I set my chance to be between 0, 10. Upon starting up the rain, the chance was set to 5, so that there was a 50% chance of the rain running. If I increased or decreased this number it would effect how much rain appeared on the screen. I decided to leave it at 5. I used AI to help me with this idea. 
+
+
 As described above, charset is used to charset uses the random number engine to genereate a random integer. In my constructors, I chose to return random numbers from 33 to 126 meaning that characters from '!' to '~' would be printed. Here I was able to choose what characters I wanted, https://www.geeksforgeeks.org/ascii-table/ .
 Finally, screen focused on clearing the display and making sure the characters were stored properly. Without this, the screen wasn't clearning and the rain looked messy. In my constructures, I set screen to set a 2D grid to place characters, **screen = std::vector<std::string>(height, std::string(width, ' '));**. By placing the width and height in the vector, the current state of the screen is saved.
 
 This is the raindrop structure I created:
 
-
-        
-	std::uniform_int_distribution<int> column_dist;
-	std::uniform_int_distribution<int> chance_;
-	std::uniform_int_distribution<int> charset_;
-	std::vector<std::string> screen_;
 
 	struct Raindrop {
 		int x_pos;
