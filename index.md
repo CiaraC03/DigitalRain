@@ -29,7 +29,7 @@ In order to produce characters which were flexible, I decided to use the followi
 
 
 
-I got my research from here, https://medium.com/@ryan_forrester_/c-random-string-generation-practical-guide-e7e789b348d4. 
+I got my research from the Algorithm lecture notes. 
 
 X and Y were dependent on what characters I wanted to display whether it be ascii, numbers or uppercase characters. Using this distribution, I could use a random number generator engine to display the charcters. I used chat gpt to see what the best libraries were to update my code. This is the research I came back with:
 
@@ -38,7 +38,7 @@ X and Y were dependent on what characters I wanted to display whether it be asci
 	std::mt19937 -> This produces fast and high quality random numbers
 
  
-To generate a different range of numbers I will use the **std::mt19937** library as this is more relevent to what I am working on and more advanced than the old C++ library **'rand()'**. To add this to my project i just needed to add the header file **#include random**. 
+To generate a different range of numbers I will use the **std::mt19937** library as this is more relevent to what I am working on and more advanced than the old C++ library **'rand()'**. To add this to my project I just needed to add the header file **#include random**. 
 
 I wanted to create a function which would use the random engine generator in conjuction with my charset. I created a small function which would return a random set of ascii numbers: 
 
@@ -124,11 +124,12 @@ Currently, my rain displays one character at a time. I wanted to update this cod
 
 I decided to use the **push_back** so the implementation could be more dynanmic, https://www.w3schools.com/cpp/ref_vector_push_back.asp. To ensure my characters were displayed vertically I added this for loop to my code, 
 
-	for (size_t i = 0; i < drop.characters.size(); ++i) {
-    	int pos_y = drop.y_pos - i;
-     	}
+	for (auto& drop : raindrops) {
+		for (size_t i = 0; i < drop.characters.size(); ++i) {
+    		int pos_y = drop.y_pos - i;
+     		}
 
-I used a size_t type as this was recommended when working with my vector. I used the size function to return the number of charcters which was three, https://www.w3schools.com/cpp/ref_string_size.asp#:~:text=Definition%20and%20Usage,()%20-%20they%20behave%20the%20same. I created an int pos_y so that each charcter could be displayed vertically. In this for loop, the character stays at the first position which is **y_pos**. Then they are displayed a row below eachother until i = 2. 
+I used a range for loop outside of my for loop as this was recommended from the Vector lecture slides. I used a size_t type when working with my vector. I used the size function to return the number of charcters which was three, https://www.w3schools.com/cpp/ref_string_size.asp#:~:text=Definition%20and%20Usage,()%20-%20they%20behave%20the%20same. I created an integer pos_y so that each charcter could be displayed vertically. In this for loop, the character stays at the first position which is **y_pos**. Then they are displayed a row below eachother until i = 2. 
 So while **y_pos** focuses on the position of the entire raindrop, **pos_y** focuses on the charcter of each position to create the vertical effect.
 
 
