@@ -129,11 +129,11 @@ I decided to use the **push_back** so the implementation could be more dynanmic,
     		int pos_y = drop.y_pos - i;
      		}
 
-I used a range for loop outside of my for loop as this was recommended from the Vector lecture slides. I used a size_t type when working with my vector. I used the size function to return the number of charcters which was three, https://www.w3schools.com/cpp/ref_string_size.asp#:~:text=Definition%20and%20Usage,()%20-%20they%20behave%20the%20same. I created an integer pos_y so that each charcter could be displayed vertically. In this for loop, the character stays at the first position which is **y_pos**. Then they are displayed a row below eachother until i = 2. 
+I used a range for loop outside of my for loop as this was recommended from the Vector lecture slides. I used a size_t type when working with my vector. I used the size function to return the number of charcters which was three, https://www.w3schools.com/cpp/ref_string_size.asp#:~:text=Definition%20and%20Usage,()%20-%20they%20behave%20the%20same. I created an integer **pos_y** so that each charcter could be displayed vertically. In this for loop, the character stays at the first position which is **y_pos**. Then they are displayed a row below eachother until i = 2. 
 So while **y_pos** focuses on the position of the entire raindrop, **pos_y** focuses on the charcter of each position to create the vertical effect.
 
 
-I was having a few errors where the drops were not appearing as expected. Some characters were not appearing in there vertical line so I added in a condition to make sure that the characters would be displayed at the correct positions. I added a for loop which ensured that the positions were not negative, and that the positions were less than the height, which was 25. Using the 2D screen grid, for the vertical position **pos_y**, and the column position **x_pos**, the characters are placed at different positions over the screen, 
+I was having a few errors where the drops were not appearing as expected. Some characters were not appearing in there vertical line so I added in a condition to make sure that the characters would be displayed at the correct positions. I added an if loop which ensured that the positions were not negative, and that the positions were less than the height, which was 25. Using the 2D screen grid, for the vertical position **pos_y**, and the column position **x_pos**, the characters are placed at different positions over the screen. I got inspiration for this 2D array from the Matrix lecture slides, 
 
 	if (pos_y >= 0 && pos_y < height) {
         screen[pos_y][drop.x_pos] = drop.characters[i];
