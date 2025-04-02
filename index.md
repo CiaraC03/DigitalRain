@@ -172,7 +172,7 @@ At the start of the project I created 2 local variables width and height, but in
 
 
 
-To clear my screen physically, I used the **\033** escape character so that my display would be refreshed. I used this as refernce when clearing my screen, https://medium.com/@ryan_forrester_/c-screen-clearing-how-to-guide-cff5bf764ccd#:~:text=%20%60%5C033%60%20is%20the%20escape,and%20works%20on%20most%20platforms.
+To clear my screen physically, I used the **\033** escape character so that my display would be refreshed. I used this as reference when clearing my screen, https://medium.com/@ryan_forrester_/c-screen-clearing-how-to-guide-cff5bf764ccd#:~:text=%20%60%5C033%60%20is%20the%20escape,and%20works%20on%20most%20platforms.
 
 
  This is my final product, 
